@@ -5,6 +5,18 @@ import './App.css';
 
 require('dotenv').config()
 
+const BackArrow = () => (
+  <div style={{fontSize: '2em', marginRight: '12px'}}>
+    <i className="fa fa-angle-left fa-2x" aria-hidden="true"></i>
+  </div>
+)
+
+const NextArrow = () => (
+  <div style={{fontSize: '2em', marginLeft: '12px'}}>
+    <i className="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+  </div>
+)
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -43,6 +55,7 @@ class App extends Component {
             )
           })}
         </div>
+
       </div>
     );
   }
