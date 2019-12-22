@@ -10,37 +10,3 @@
   font-size: calc(10px + 2vmin);
   color: black;
 }
-
-.Slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.Caption {
-  width: 600px;
-  margin: 24px auto;
-  font-size: 20px;
-}
-
-.Arrow{
-  font-size: 2em;
-  margin: 0px 12px;
-}
-
-.Panel {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  width: 25%;
-  margin: 0 auto;
-}
-
-.Autoplay{
-  font-size: 2em;
-  margin: 0px 12px;
-  float: left;
-}
