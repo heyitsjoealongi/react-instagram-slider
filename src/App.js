@@ -35,7 +35,13 @@ class App extends Component {
           <h1 className="App-title">Welcome to My Instagram</h1>
         </header>
         <div>
-          {console.log(this.state.photos)}
+          {this.state.photos.map((photo, key) => {
+            return (
+              <div key={photo.id}>
+                <img src={photo.images.standard_resolution.url} alt={photo.caption}/>
+              </div>
+            )
+          })}
         </div>
       </div>
     );
