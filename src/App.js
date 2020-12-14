@@ -35,7 +35,7 @@ class App extends Component {
 
   fetchPhotos() {
     request
-      .get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${process.env.ACCESS_TOKEN}`)
+      .get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${process.env.REACT_APP_NOT_SECRET_CODE}`)
       .then((res) => {
         this.setState({
           photos: res.body.data
