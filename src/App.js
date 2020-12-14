@@ -31,19 +31,19 @@ const JumpArrow = (props) => (
 )
 
 const AutoPlay = (props) => (
-  <div onClick={props.autoPlay}>
+  <div onClick={props.autoPlay} className="Autoplay">
     <FontAwesomeIcon icon={faPlayCircle} />
   </div>
 )
 
 const AutoPause = (props) => (
-  <div onClick={props.autoPause}>
+  <div onClick={props.autoPause} className="Autoplay">
     <FontAwesomeIcon icon={faPauseCircle} />
   </div>
 )
 
 const Restart = (props) => (
-  <div onClick={props.firstImage}>
+  <div onClick={props.firstImage} className="Autoplay">
     <FontAwesomeIcon icon={faRedo} />
   </div>
 )
@@ -136,7 +136,7 @@ class App extends Component {
           {this.state.slideCount !== (this.state.photos.length - 1) ? <NextArrow nextImage={this.nextImage}/> : ''}
           {this.state.slideCount === 19 ? <ReturnArrow firstImage={this.firstImage}/> : ''}
         </div>
-        <div>
+        <div className="Panel">
           {this.state.slideCount !== 19 ? <AutoPlay autoPlay={this.autoPlay}/> : ''}
           {this.state.slideCount !== 19 ? <AutoPause autoPause={this.autoPause}/> : ''}
           {this.state.slideCount === 19 ? <Restart firstImage={this.firstImage}/> : ''}
