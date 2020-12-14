@@ -12,8 +12,7 @@ class Slider extends Component {
     super(props);
     this.state = {
       photos: [],
-      slideCount: 0,
-      infinite: true
+      slideCount: 0
     }
     this.nextImage = this.nextImage.bind(this);
     this.previousImage = this.previousImage.bind(this);
@@ -72,7 +71,7 @@ class Slider extends Component {
 
   render() {
     return (
-      <div className="Slider">
+      <div>
         <div className="Slide">
           {this.state.slideCount === 0 ? <JumpArrow lastImage={this.lastImage}/> : ''}
           {this.state.slideCount !== 0 ? <BackArrow previousImage={this.previousImage}/> : ''}
@@ -108,14 +107,14 @@ const BackArrow = (props) => (
   </div>
 )
 
-const NextArrow = (props) => (
-  <div onClick={props.nextImage} className="Arrow">
+const ReturnArrow = (props) => (
+  <div onClick={props.firstImage} className="Arrow">
     <FontAwesomeIcon icon={faChevronRight} />
   </div>
 )
 
-const ReturnArrow = (props) => (
-  <div onClick={props.firstImage} className="Arrow">
+const NextArrow = (props) => (
+  <div onClick={props.nextImage} className="Arrow">
     <FontAwesomeIcon icon={faChevronRight} />
   </div>
 )
