@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import request from 'superagent';
 import logo from './logo.svg';
 import './App.css';
+import 'font-awesome/css/font-awesome.css';
 
 require('dotenv').config()
 
