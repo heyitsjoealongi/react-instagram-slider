@@ -7,13 +7,13 @@ import { faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 require('dotenv').config()
 
 const BackArrow = (props) => (
-  <div onClick={props.previousImage} style={{fontSize: '2em', marginRight: '12px'}}>
+  <div onClick={props.previousImage} className="Arrow">
     <FontAwesomeIcon icon={faChevronLeft} />
   </div>
 )
 
 const NextArrow = (props) => (
-  <div onClick={props.nextImage} style={{fontSize: '2em', marginLeft: '12px'}}>
+  <div onClick={props.nextImage} className="Arrow">
     <FontAwesomeIcon icon={faChevronRight} />
   </div>
 )
@@ -57,14 +57,14 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">My Instagram Photos</h1>
         </header>
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center',marginTop: '30px'}}>
+        <div className="Slide">
           {this.state.slideCount !== 0 ? <BackArrow previousImage={this.previousImage}/> : ''}
           {this.state.photos.map((photo, key) => {
             if (this.state.photos.indexOf(photo) === this.state.slideCount) {
               return (
                 <div key={photo.id}>
                   <img src={photo.images.standard_resolution.url} alt=''/>
-                  <div style={{width:'600px', margin: '24px auto', fontSize: '20px'}}>
+                  <div className="Caption">
                     {photo.caption !== null ? photo.caption.text : ''}
                   </div>
                 </div>
