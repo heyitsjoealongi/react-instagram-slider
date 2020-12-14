@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import './App.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 require('dotenv').config()
 
 const BackArrow = (props) => (
   <div onClick={props.previousImage} style={{fontSize: '2em', marginRight: '12px'}}>
-    <i className="fa fa-angle-left fa-2x" aria-hidden="true"></i>
+    <FontAwesomeIcon icon={faChevronLeft} />
   </div>
 )
 
 const NextArrow = (props) => (
   <div onClick={props.nextImage} style={{fontSize: '2em', marginLeft: '12px'}}>
-    <i className="fa fa-angle-right fa-2x" aria-hidden="true"></i>
+    <FontAwesomeIcon icon={faChevronRight} />
   </div>
 )
 
