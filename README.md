@@ -1,5 +1,7 @@
 # react-instagram-slider
 
+![React Instagram Slider: Diagram](/img/react-instagram-slider.jpg)
+
 This Instagram slider provides extended features to the Instagram API through React [Components](https://reactjs.org/docs/components-and-props.html) and [Props](https://reactjs.org/docs/components-and-props.html#props-are-read-only) to deliver sliding, looping, and automation functionality through React.js and ES6.
 
 *This application was built with React and runs on Node, it was tested with Jest and Enzyme.*
@@ -9,15 +11,14 @@ This Instagram slider provides extended features to the Instagram API through Re
 * [About](#about)
 * [Build](#build)
 * [Overview](#overview)
-  * [Requirements](#prerequisites)
+  * [Requirements](#requirements)
   * [Installation](#installation)
 * [Scripts](#scripts)
-* [Contact](#contact)
 * [Additional](#additional)
 
 ## About
 
-React sliders can be imported to React.js as packages from [NPM](https://reactjs.org/docs/components-and-props.html#props-are-read-only), various builds allow you to connect your image library to sliders packed with features, this slider is API focused and connects functionality to pre-built features you may not be able to mutate.
+React sliders can be imported to React.js as packages from [NPM](https://www.npmjs.com/), various builds allow you to connect your image library to sliders packed with features, this slider is API focused and connects functionality to pre-built features you may not be able to mutate.
 
 #### Solution:
 * Sliders built around libraries require configured JSON files for implementing image assets.
@@ -112,3 +113,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 Improving the functionality of this slider can be shifted by implementing the handling of the API, optimizing the flow of data through [State](https://reactjs.org/docs/state-and-lifecycle.html#using-state-correctly) and [Redux](https://redux.js.org/), shifting the bindings with React [Hooks](https://reactjs.org/docs/hooks-intro.html), and importing packages for handling the loading after ejecting to create a new application structure.
 
 As the Instagram developer tools become more refined, there will be an increased flow of data to particular endpoints for shaping functionality through React.js and [Redux](https://redux.js.org/).
+
+### Acknowledgments
+[Scotch.io](https://scotch.io/tutorials/build-an-image-slider-using-react-superagent-and-the-instagram-api) & [Stack Overflow](https://stackoverflow.com/questions/49579028/adding-an-env-file-to-react-project)
