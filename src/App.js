@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 require('dotenv').config()
 
