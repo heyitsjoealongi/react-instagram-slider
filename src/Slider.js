@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import './App.css';
+
+import './Slider.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft, faPlayCircle, faPauseCircle, faRedo } from '@fortawesome/free-solid-svg-icons';
 
@@ -71,7 +72,7 @@ class Slider extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="Slider">
         <div className="Slide">
           {this.state.slideCount === 0 ? <JumpArrow lastImage={this.lastImage}/> : ''}
           {this.state.slideCount !== 0 ? <BackArrow previousImage={this.previousImage}/> : ''}
@@ -79,7 +80,7 @@ class Slider extends Component {
             if (this.state.photos.indexOf(photo) === this.state.slideCount) {
               return (
                 <div key={photo.id}>
-                  <img src={photo.images.standard_resolution.url} className="Slider" alt=''/>
+                  <img src={photo.images.standard_resolution.url} alt=''/>
                   <div className="Caption">
                     {photo.caption !== null ? photo.caption.text : ''}
                   </div>
