@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import request from 'superagent';
-import logo from './logo.svg';
 import './App.css';
 import 'font-awesome/css/font-awesome.css';
 
@@ -25,6 +24,8 @@ class App extends Component {
       photos: [],
       slideCount: 0
     }
+    this.nextImage = this.nextImage.bind(this);
+    this.previousImage = this.previousImage.bind(this);
   }
 
   componentWillMount() {
