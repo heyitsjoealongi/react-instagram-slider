@@ -6,14 +6,14 @@ import 'font-awesome/css/font-awesome.css';
 
 require('dotenv').config()
 
-const BackArrow = () => (
-  <div style={{fontSize: '2em', marginRight: '12px'}}>
+const BackArrow = (props) => (
+  <div onClick={props.previousImage} style={{fontSize: '2em', marginRight: '12px'}}>
     <i className="fa fa-angle-left fa-2x" aria-hidden="true"></i>
   </div>
 )
 
-const NextArrow = () => (
-  <div style={{fontSize: '2em', marginLeft: '12px'}}>
+const NextArrow = (props) => (
+  <div onClick={props.nextImage} style={{fontSize: '2em', marginLeft: '12px'}}>
     <i className="fa fa-angle-right fa-2x" aria-hidden="true"></i>
   </div>
 )
@@ -39,6 +39,14 @@ class App extends Component {
           photos: res.body.data
         })
       })
+  }
+
+  nextImage() {
+    this.setState({ slideCount: this.state.slideCount + 1 })
+  }
+
+  previousImage() {
+    this.setState({ slideCount: this.state.slideCount - 1 })
   }
 
   render() {
