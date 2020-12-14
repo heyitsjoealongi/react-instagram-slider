@@ -3,6 +3,8 @@ import request from 'superagent';
 import logo from './logo.svg';
 import './App.css';
 
+require('dotenv').config()
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class App extends Component {
 
   fetchPhotos() {
     request
-      .get('https://api.instagram.com/v1/users/self/media/recent/?access_token=ACCESS-TOKEN')
+      .get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${process.env.ACCESS_TOKEN}`)
       .then((res) => {
         this.setState({
           photos: res.body.data
