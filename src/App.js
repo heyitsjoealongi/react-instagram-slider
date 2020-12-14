@@ -18,6 +18,18 @@ const NextArrow = (props) => (
   </div>
 )
 
+const ReturnArrow = (props) => (
+  <div onClick={props.firstImage} className="Arrow">
+    <FontAwesomeIcon icon={faChevronRight} />
+  </div>
+)
+
+const JumpArrow = (props) => (
+  <div onClick={props.lastImage} className="Arrow">
+    <FontAwesomeIcon icon={faChevronLeft} />
+  </div>
+)
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -27,6 +39,8 @@ class App extends Component {
     }
     this.nextImage = this.nextImage.bind(this);
     this.previousImage = this.previousImage.bind(this);
+    this.firstImage = this.firstImage.bind(this);
+    this.lastImage = this.lastImage.bind(this);
   }
 
   componentWillMount() {
@@ -51,6 +65,14 @@ class App extends Component {
     this.setState({ slideCount: this.state.slideCount - 1 })
   }
 
+  firstImage() {
+    this.setState({ slideCount: this.state.slideCount - 19 })
+  }
+
+  lastImage() {
+    this.setState({ slideCount: this.state.slideCount + 19 })
+  }
+
   render() {
     return (
       <div className="App">
@@ -58,6 +80,7 @@ class App extends Component {
           <h1 className="App-title">My Instagram Photos</h1>
         </header>
         <div className="Slide">
+          {this.state.slideCount === 0 ? <JumpArrow lastImage={this.lastImage}/> : ''}
           {this.state.slideCount !== 0 ? <BackArrow previousImage={this.previousImage}/> : ''}
           {this.state.photos.map((photo, key) => {
             if (this.state.photos.indexOf(photo) === this.state.slideCount) {
@@ -73,6 +96,7 @@ class App extends Component {
             return ''
           })}
           {this.state.slideCount !== (this.state.photos.length - 1) ? <NextArrow nextImage={this.nextImage}/> : ''}
+          {this.state.slideCount === 19 ? <ReturnArrow firstImage={this.firstImage}/> : ''}
         </div>
       </div>
     );
