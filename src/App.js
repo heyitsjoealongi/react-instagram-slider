@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import request from 'superagent';
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight,faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faChevronLeft, faPlayCircle, faPauseCircle, faRedo } from '@fortawesome/free-solid-svg-icons'
 
 require('dotenv').config()
 
@@ -30,20 +30,41 @@ const JumpArrow = (props) => (
   </div>
 )
 
+const AutoPlay = (props) => (
+  <div onClick={props.autoPlay}>
+    <FontAwesomeIcon icon={faPlayCircle} />
+  </div>
+)
+
+const AutoPause = (props) => (
+  <div onClick={props.autoPause}>
+    <FontAwesomeIcon icon={faPauseCircle} />
+  </div>
+)
+
+const Restart = (props) => (
+  <div onClick={props.firstImage}>
+    <FontAwesomeIcon icon={faRedo} />
+  </div>
+)
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       photos: [],
-      slideCount: 0
+      slideCount: 0,
+      infinite: true
     }
     this.nextImage = this.nextImage.bind(this);
     this.previousImage = this.previousImage.bind(this);
     this.firstImage = this.firstImage.bind(this);
     this.lastImage = this.lastImage.bind(this);
+    this.autoPlay = this.autoPlay.bind(this);
+    this.autoPause = this.autoPause.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchPhotos();
   }
 
@@ -73,6 +94,23 @@ class App extends Component {
     this.setState({ slideCount: this.state.slideCount + 19 })
   }
 
+  autoplay() {
+    this.setState({
+      slideCount: this.state.slideCount + 1
+    })
+    if(this.state.slideCount === 19) {
+      clearInterval(this.intervalId);
+      }
+  }
+
+  autoPlay() {
+    this.intervalId = setInterval(this.autoplay.bind(this), 3000);
+  }
+
+  autoPause(){
+    clearInterval(this.intervalId);
+  }
+
   render() {
     return (
       <div className="App">
@@ -86,7 +124,7 @@ class App extends Component {
             if (this.state.photos.indexOf(photo) === this.state.slideCount) {
               return (
                 <div key={photo.id}>
-                  <img src={photo.images.standard_resolution.url} alt=''/>
+                  <img src={photo.images.standard_resolution.url} className="Photo" alt=''/>
                   <div className="Caption">
                     {photo.caption !== null ? photo.caption.text : ''}
                   </div>
@@ -97,6 +135,11 @@ class App extends Component {
           })}
           {this.state.slideCount !== (this.state.photos.length - 1) ? <NextArrow nextImage={this.nextImage}/> : ''}
           {this.state.slideCount === 19 ? <ReturnArrow firstImage={this.firstImage}/> : ''}
+        </div>
+        <div>
+          {this.state.slideCount !== 19 ? <AutoPlay autoPlay={this.autoPlay}/> : ''}
+          {this.state.slideCount !== 19 ? <AutoPause autoPause={this.autoPause}/> : ''}
+          {this.state.slideCount === 19 ? <Restart firstImage={this.firstImage}/> : ''}
         </div>
       </div>
     );
